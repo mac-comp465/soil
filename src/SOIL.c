@@ -31,7 +31,11 @@
 #endif
 
 #include "SOIL/SOIL.h"
-#include "SOIL/stb_image_aug.h"
+#define STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+//#include "SOIL/stb_image_aug.h"
+#include "SOIL/stb_image.h"
+#include "SOIL/stb_image_write.h"
 #include "SOIL/image_helper.h"
 #include "SOIL/image_DXT.h"
 
@@ -181,8 +185,9 @@ unsigned int
 		return 0;
 	}
 	/*	try to load the image (only the HDR type) */
-	img = stbi_hdr_load_rgbe( filename, &width, &height, &channels, 4 );
-	/*	channels holds the original number of channels, which may have been forced	*/
+	//img = stbi_hdr_load_rgbe( filename, &width, &height, &channels, 4 );
+    img = stbi_load(filename, &width, &height, &channels, 4);
+    /*	channels holds the original number of channels, which may have been forced	*/
 	if( NULL == img )
 	{
 		/*	image loading failed	*/

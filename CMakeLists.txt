@@ -3,7 +3,8 @@ project (SOIL)
 
 #aux_source_directory(${CMAKE_SOURCE_DIR}/src SOURCEFILES)
 
-set(SOURCEFILES src/image_DXT.c src/image_helper.c src/SOIL.c src/stb_image_aug.c)
+set(SOURCEFILES src/image_DXT.c src/image_helper.c src/SOIL.c) # src/stb_image_aug.c)
+set(HEADERFILES inc/SOIL/image_DXT.h inc/SOIL/image_helper.h inc/SOIL/SOIL.h inc/SOIL/stbi_DDS_aug_c.h inc/SOIL/stbi_DDS_aug.h inc/SOIL/stb_image.h inc/SOIL/stb_image_write.h)
 
 set (CMAKE_VERBOSE_MAKEFILE TRUE)
 
@@ -40,7 +41,7 @@ endif (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 #Finally add all the targets here
 ############################################################
 
-add_library(SOIL ${SOURCEFILES})
+add_library(SOIL ${SOURCEFILES} ${HEADERFILES})
 
 #------------------------------------------
 # Install Target
