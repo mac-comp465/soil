@@ -31,6 +31,7 @@
 #endif
 
 #include "SOIL/SOIL.h"
+#define STB_IMAGE_STATIC
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 //#include "SOIL/stb_image_aug.h"
